@@ -22,8 +22,9 @@ while True:
         # Save the current frame to a file
         cv2.imwrite('captured_image.jpg', frame)
         print('Image captured!')
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-
+    
 # Release the camera and close all windows
 cap.release()
 cv2.destroyAllWindows() 
