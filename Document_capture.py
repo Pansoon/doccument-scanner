@@ -23,7 +23,7 @@ while True:
     # Check if the capture key was pressed
     if key == capture_key:
         # Save the current frame to a file
-        cv2.imwrite('captured_image_%d.jpg',% i, frame)
+        cv2.imwrite('captured_image_%d.jpg' % i, frame)
         print('Image captured!')
         i += 1
     if cv2.waitKey(1) & 0xFF == ord('q'):
