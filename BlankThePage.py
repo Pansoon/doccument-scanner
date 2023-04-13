@@ -2,6 +2,9 @@
 # import the necessary packages
 import numpy as np
 import cv2
+import imutils
+import perspective
+
 # capture webcam and show the live video
 cap = cv2.VideoCapture(0)
 while(True):
@@ -11,19 +14,24 @@ while(True):
         break
 cap.release()
 cv2.destroyAllWindows()
+
 # convert the frame to grayscale, and blur it
 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 gray = cv2.GaussianBlur(gray, (7, 7), 0)
+
 # perform edge detection, then perform a dilation + erosion to close gaps in between object edges
 edged = cv2.Canny(gray, 50, 100)
 edged = cv2.dilate(edged, None, iterations=1)
 edged = cv2.erode(edged, None, iterations=1)
+
 # find contours in the edge map
 cnts = cv2.findContours(edged.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 cnts = imutils.grab_contours(cnts)
+
 # sort the contours from left-to-right and initialize the 'pixels per metric' calibration variable
 (cnts, _) = contours.sort_contours(cnts)
 pixelsPerMetric = None
+
 # loop over the contours individually
 for c in cnts:
     # if the contour is not sufficiently large, ignore it
@@ -70,8 +78,10 @@ for c in cnts:
     # show the output image
     cv2.imshow("Image", orig)
     cv2.waitKey(0)
+
 # show the output image
 cv2.imshow("Image", orig)
 cv2.waitKey(0)
+
 # close all windows
 cv2.destroyAllWindows()
