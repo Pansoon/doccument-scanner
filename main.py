@@ -1,3 +1,7 @@
 #main program 
 #excute the program here
-import 
+import Document_capture as DC
+
+DC.capture()
+
+
