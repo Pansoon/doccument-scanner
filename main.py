@@ -28,5 +28,5 @@ while True:
         cv2.imwrite("result_%d.png" %i, result)
         break
 
-plt.title("Scanned picture")
+plt.title("Preview")
 plt.show()
