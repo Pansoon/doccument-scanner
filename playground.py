@@ -7,7 +7,7 @@ from Functions_Copy import *
 i = 1
 
 # opencam()
-img = cv2.imread(r"C:\Users\tcsuy\Documents\GitHub\doccument-scanner\captured_image1.jpg", cv2.IMREAD_ANYCOLOR)
+img = cv2.imread(r"C:\Users\tcsuy\Documents\GitHub\doccument-scanner\captured_image.jpg", cv2.IMREAD_ANYCOLOR)
 
 img, original = resize(img)
 blank = blankpage(img)
