@@ -1,5 +1,4 @@
 import cv2
-import os
 import numpy as np
 
 def opencam():
@@ -7,9 +6,6 @@ def opencam():
     cap = cv2.VideoCapture(0)
 
     i = 0
-
-    if not os.path.exists('capture'):
-            os.makedirs('capture')
 
     capture_key = ord('c')
     while True:
@@ -30,13 +26,6 @@ def opencam():
     cv2.destroyAllWindows()
 
     return
-
-def show_img(img):
-     while True:
-        cv2.imshow("Document", img)
-        if cv2.waitKey(0):
-            break
-        cv2.destroyAllWindows()
 
 def resize(img):
     dim_limit = 1080
